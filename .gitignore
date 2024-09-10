@@ -1,0 +1,7 @@
+CMake*
+!src/CMakeLists.txt
+cmake*
+*log
+*tmp
+*nfs*
+Makefile
