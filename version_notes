@@ -1,0 +1,33 @@
+V2.0.0
+Added Min and max primer length options, removed specific primer length option. The removed option can
+still be acheived by setting me and max to be equal (this is what occured internally anyway).
+Loss of backwards compatability  
+V1.5.1
+Changed Excitability to wind down to swapping only one primer by the end of simulated
+annealing rather than gradient descent
+V1.5.0
+Added a check during badness calculations that significantly reduces the badness if a non-T
+mismatch is present at the 3` end of a primer
+V1.4.0
+Added option to output all candidate primers to stdout in fasta format so external prefiltering can be
+done
+V1.3.0
+Changes to chain heat and annealing schedule
+Automatic heating period where the chain temperature is adjusted until an optimal acceptance rate is
+found
+The primer set is adjusted during the heating period
+The annealing schdule then cools logarithmicly with generation umber
+Chain Heat option is no longer available
+V1.2.1
+Fixed bug where Target names were truncated resulting in redundancy
+V1.2.0
+Added a column to the primer info output, the 'score' for a primer, the sum of badness
+    against all other primers just for this one primer, useful for predicting which primers
+    should be bad
+V1.1.0
+Updated default excitability to be 0.01 rather than 0.1 (0.1 is too bouncy)
+When loading id's of targets only takes the string up to the first space in the fasta
+    header, assuming this bit is unique. Cuts a tiny bit down on memory, but mostly just
+    improves legibility of target_info file
+V1.0.0
+Initial Release

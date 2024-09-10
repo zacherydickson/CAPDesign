@@ -1,0 +1,40 @@
+Inputs:
+    A Fasta formatted file of sequences which are assumed to have a target
+in their center
+Optional inputs:
+    Pivot Length
+    Free Energy Range or Primer Length
+    Annealing generations
+    Total generations
+
+Outputs
+    A fasta formated set of primer sequences
+
+Processing
+
+Identify Candidate probes
+    //Hash table might be better here
+    Build a set of 4 suffix arrays for Upstream, Downstream, RevUp, and RevDown
+        from all sequences which meat the FreeEnergy/Probe length requirements 
+        in the relevant areas
+    Attempt to Establish interchangeability protocols
+        i.e Forward 1 has the same coverage as forward 5 and 7 
+    Select one, maximal Coverage Set (S_0)
+        Note: Attempts should be made to avoid redundancy in target coverage
+Simulated Annealing
+    g = 0
+    Calculate the Loss function of S_g
+    Randomly select a primer to swap for an equivalent primer (or set of primers?)
+    Calculate the Loss function with the swap and compare to that of S_g
+    Accept the Swapped primer set as S_g+1 if It is better, or with a probability inversly proportional to how much worse it is
+    Repeat until enough generations have been completed
+
+Ouptut the final primer set
+
+The ratio of forward to reverse primers should be noted
+i.e if one forward primer covers 6 targets, 4 with one reverse primer and 2
+with another then there should be 3 times more of the forward than the latter reverse, and
+2 times as much of the former reverse as the latter.
+Might be able to just say the number of targets each primer amps for
+
+    
