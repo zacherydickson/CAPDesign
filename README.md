@@ -5,9 +5,12 @@ Program to design a minimal set of multiplex primers to amplify a set of targets
 #Installation
 
 ```
+    git clone --recurse-submodules https://github.com/seqan/seqan3.git
     cmake src
     make 
 ```
+
+As a note The current version was developed with seqan3.1, and ranges-v3 0.11
 
 #BasicUsage
 
